@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class LogTrackerMain {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        LogService habitService = new LogService();
+        ReportingService reportService = new ReportingService();
+
+        while (true) {
+            System.out.println("\n===== Habit Tracker =====");
+            System.out.println("1. Add Log");
+            System.out.println("2. Delete Log");
+            System.out.println("3. View Logs");
+            System.out.println("4. Mark Log Completed");
+            System.out.println("5. View Report");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+
+            int ch = Integer.parseInt(sc.nextLine());
+
+            switch (ch) {
+            case 1:
+                System.out.print("Enter Log name: ");
+                habitService.addHabit(sc.nextLine());
+                break;
+
+            case 2:
+                System.out.print("Enter Log name to delete: ");
+                habitService.deleteHabit(sc.nextLine());
+                break;
+
+            case 3:
+                habitService.viewHabits();
+                break;
+
+            case 4:
+                System.out.print("Enter Log name to mark complete: ");
+                habitService.markCompleted(sc.nextLine());
+                break;
+
+            case 5:
+                reportService.showReport(habitService.getHabits());
+                break;
+
+            case 6:
+                System.out.println("Exiting...");
+                return;
+
+            default:
+                System.out.println("Invalid choice!");
+            }
+
+        }
+    }
+}
