@@ -1,8 +1,4 @@
-# Student_Habit_Planner
-
-📌 Project Title
-
-Logr
+# Logr
 
 ---
 
